@@ -34,6 +34,26 @@
 
 A lightweight, browser-based web application that renders a photorealistic iPhone device frame containing an embedded browser viewport. Preview how any website appears on iPhone without physical hardware or heavyweight simulators.
 
+## Demo
+
+<p align="center">
+  <img src="images/iphone.png" alt="iPhone Browser Emulator showing a website" width="350">
+</p>
+
+<p align="center">
+  <em>Preview any website in a realistic iPhone frame with Dynamic Island, status bar, and Safari-style browser chrome</em>
+</p>
+
+### Device Controls
+
+<p align="center">
+  <img src="images/settings.png" alt="Device selector and settings panel" width="500">
+</p>
+
+<p align="center">
+  <em>Switch between iPhone models, toggle orientation, and change themes</em>
+</p>
+
 ## Features
 
 | Feature | Description |

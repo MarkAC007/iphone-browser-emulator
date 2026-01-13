@@ -1,0 +1,273 @@
+/**
+ * CSS Custom Properties (Variables)
+ *
+ * Centralised design tokens for the iPhone Browser Emulator.
+ * These variables provide a single source of truth for colours,
+ * dimensions, and other design values.
+ *
+ * Uses British English in all comments.
+ */
+
+:root {
+  /* ==========================================================================
+     COLOURS - iOS Primary (Blue)
+     ========================================================================== */
+
+  /* Primary colour (iOS blue #007AFF) */
+  --color-primary: #007AFF;
+  --color-primary-hover: #0066CC;
+  --color-primary-active: #0055AA;
+  --color-primary-light: rgba(0, 122, 255, 0.1);
+
+  /* ==========================================================================
+     COLOURS - Light Theme (Default)
+     ========================================================================== */
+
+  /* Background colours */
+  --color-bg-primary: #f2f2f7;
+  --color-bg-secondary: #ffffff;
+  --color-bg-tertiary: #e5e5ea;
+  --color-background-light: #F5F5F7;
+  --color-background-dark: #1C1C1E;
+
+  /* Text colours */
+  --color-text-primary: #000000;
+  --color-text-secondary: #8e8e93;
+  --color-text-tertiary: #c7c7cc;
+
+  /* Brand colours */
+  --color-accent: #007aff;
+  --color-accent-hover: #0056b3;
+
+  /* Semantic colours */
+  --color-success: #34c759;
+  --color-warning: #ff9500;
+  --color-error: #ff3b30;
+
+  /* Border colours */
+  --color-border: #c6c6c8;
+  --color-border-light: #e5e5ea;
+
+  /* ==========================================================================
+     BEZEL COLOURS (Theme-aware defaults)
+     ========================================================================== */
+
+  /* Light mode bezel (Space Black - default) */
+  --bezel-color-light: #1D1D1F;
+  --bezel-color-light-highlight: #3A3A3C;
+  --bezel-color-light-shadow: #000000;
+
+  /* Dark mode bezel (Silver - contrasts well) */
+  --bezel-color-dark: #E3E3E8;
+  --bezel-color-dark-highlight: #FFFFFF;
+  --bezel-color-dark-shadow: #A1A1A6;
+
+  /* ==========================================================================
+     DEVICE FRAME COLOURS (All variants)
+     ========================================================================== */
+
+  /* Device frame colours */
+  --device-frame-space-grey: #1f1f1f;
+  --device-frame-silver: #e0e0e0;
+  --device-frame-gold: #f4e5d0;
+  --device-frame-deep-purple: #594f63;
+  --device-frame-titanium: #8f8a84;
+  --device-frame-titanium-blue: #3d4550;
+  --device-frame-titanium-white: #f2f2f0;
+  --device-frame-titanium-black: #2c2c2c;
+
+  /* Natural Titanium variant */
+  --bezel-color-natural-titanium: #B5B3AF;
+  --bezel-color-natural-titanium-highlight: #D1CFCB;
+  --bezel-color-natural-titanium-shadow: #8A8885;
+
+  /* Blue Titanium variant */
+  --bezel-color-blue-titanium: #394C5A;
+  --bezel-color-blue-titanium-highlight: #5A6D7A;
+  --bezel-color-blue-titanium-shadow: #2A3A46;
+
+  /* White Titanium variant */
+  --bezel-color-white-titanium: #F5F5F0;
+  --bezel-color-white-titanium-highlight: #FFFFFF;
+  --bezel-color-white-titanium-shadow: #D1D1CC;
+
+  /* Dynamic Island and Notch */
+  --color-dynamic-island: #000000;
+  --color-notch: #000000;
+
+  /* Screen bezels */
+  --color-screen-bezel: #000000;
+
+  /* ==========================================================================
+     SAFARI BROWSER CHROME
+     ========================================================================== */
+
+  --safari-toolbar-bg: rgba(255, 255, 255, 0.95);
+  --safari-toolbar-border: rgba(0, 0, 0, 0.1);
+  --safari-url-bar-bg: #e8e8ed;
+  --safari-url-bar-text: #1c1c1e;
+  --safari-url-bar-placeholder: #8e8e93;
+  --safari-progress-bar: #007aff;
+
+  /* ==========================================================================
+     DEVICE-SPECIFIC DIMENSIONS - iPhone 15 Pro
+     ========================================================================== */
+
+  /* Screen dimensions (CSS pixels - logical resolution) */
+  --screen-width: 393px;
+  --screen-height: 852px;
+  --device-pixel-ratio: 3;
+
+  /* Screen corner radius */
+  --screen-radius: 47px;
+  --screen-radius-inner: 44px;
+
+  /* Dynamic Island dimensions */
+  --dynamic-island-width: 126px;
+  --dynamic-island-height: 37px;
+  --dynamic-island-radius: 18.5px;
+  --dynamic-island-top: 11px;
+
+  /* Home indicator */
+  --home-indicator-width: 134px;
+  --home-indicator-height: 5px;
+  --home-indicator-radius: 2.5px;
+  --home-indicator-bottom: 8px;
+
+  /* Safe area insets */
+  --safe-area-top: 59px;
+  --safe-area-bottom: 34px;
+  --safe-area-left: 0px;
+  --safe-area-right: 0px;
+
+  /* ==========================================================================
+     SPACING
+     ========================================================================== */
+
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+  --spacing-2xl: 48px;
+
+  /* ==========================================================================
+     TYPOGRAPHY
+     ========================================================================== */
+
+  --font-family-system: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto,
+    Helvetica, Arial, sans-serif;
+  --font-family-mono: 'SF Mono', Monaco, 'Cascadia Code', Consolas, monospace;
+
+  --font-size-xs: 11px;
+  --font-size-sm: 13px;
+  --font-size-md: 15px;
+  --font-size-lg: 17px;
+  --font-size-xl: 20px;
+  --font-size-2xl: 24px;
+
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+
+  /* ==========================================================================
+     BORDER RADIUS
+     ========================================================================== */
+
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+  --radius-2xl: 24px;
+  --radius-device: 55px;
+  --radius-dynamic-island: 20px;
+
+  /* ==========================================================================
+     SHADOWS
+     ========================================================================== */
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+  --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.15);
+  --shadow-device: 0 25px 50px -12px rgba(0, 0, 0, 0.4);
+
+  /* Soft shadow for subtle elevation (cards, buttons) */
+  --shadow-soft:
+    0 2px 8px rgba(0, 0, 0, 0.08),
+    0 4px 16px rgba(0, 0, 0, 0.06);
+
+  /* Medium shadow for moderate elevation (dropdowns, popovers) */
+  --shadow-medium:
+    0 4px 12px rgba(0, 0, 0, 0.12),
+    0 8px 24px rgba(0, 0, 0, 0.08),
+    0 16px 32px rgba(0, 0, 0, 0.04);
+
+  /* Strong shadow for high elevation (device frame) */
+  --shadow-strong:
+    0 8px 24px rgba(0, 0, 0, 0.16),
+    0 16px 48px rgba(0, 0, 0, 0.12),
+    0 24px 64px rgba(0, 0, 0, 0.08);
+
+  /* Focus glow effect */
+  --shadow-glow: 0 0 0 3px rgba(0, 122, 255, 0.4);
+
+  /* ==========================================================================
+     TRANSITIONS
+     ========================================================================== */
+
+  --transition-fast: 150ms ease;
+  --transition-normal: 200ms ease;
+  --transition-slow: 300ms ease;
+  --transition-ios: 300ms cubic-bezier(0.25, 0.1, 0.25, 1);
+
+  /* ==========================================================================
+     Z-INDEX LAYERS
+     ========================================================================== */
+
+  --z-base: 0;
+  --z-dropdown: 10;
+  --z-sticky: 20;
+  --z-fixed: 30;
+  --z-modal-backdrop: 40;
+  --z-modal: 50;
+  --z-tooltip: 60;
+  --z-toast: 70;
+}
+
+/* ==========================================================================
+   DARK THEME OVERRIDES
+   ========================================================================== */
+
+:root.dark {
+  /* Background colours */
+  --color-bg-primary: #000000;
+  --color-bg-secondary: #1c1c1e;
+  --color-bg-tertiary: #2c2c2e;
+
+  /* Text colours */
+  --color-text-primary: #ffffff;
+  --color-text-secondary: #8e8e93;
+  --color-text-tertiary: #48484a;
+
+  /* Brand colours */
+  --color-accent: #0a84ff;
+  --color-accent-hover: #409cff;
+
+  /* Semantic colours */
+  --color-success: #30d158;
+  --color-warning: #ff9f0a;
+  --color-error: #ff453a;
+
+  /* Border colours */
+  --color-border: #38383a;
+  --color-border-light: #48484a;
+
+  /* Safari browser chrome */
+  --safari-toolbar-bg: rgba(28, 28, 30, 0.95);
+  --safari-toolbar-border: rgba(255, 255, 255, 0.1);
+  --safari-url-bar-bg: #39393d;
+  --safari-url-bar-text: #ffffff;
+  --safari-url-bar-placeholder: #98989f;
+}

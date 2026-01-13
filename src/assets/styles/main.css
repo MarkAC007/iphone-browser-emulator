@@ -1,0 +1,267 @@
+/**
+ * Main stylesheet for the iPhone Browser Emulator
+ *
+ * Imports Tailwind CSS directives and defines global styles
+ * for the application. Uses British English in all comments.
+ */
+
+/* Import CSS Custom Properties */
+@import './variables.css';
+
+/* Import Animation Definitions */
+@import './animations.css';
+
+/* Tailwind CSS Layers */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/**
+ * Base layer customisations
+ *
+ * Global resets and default styles applied to base HTML elements
+ */
+@layer base {
+  html {
+    @apply h-full antialiased;
+    font-feature-settings: 'kern' 1, 'liga' 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    scroll-behavior: smooth;
+
+    /* Prevent text size adjustment on orientation change */
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+  }
+
+  body {
+    @apply h-full m-0 p-0;
+    font-family: var(--font-family-system);
+    background: var(--color-bg-primary);
+    color: var(--color-text-primary);
+
+    /* Smooth transitions for theme changes */
+    transition:
+      background-color var(--transition-slow),
+      color var(--transition-normal);
+  }
+
+  /* Dark mode body styles */
+  .dark body,
+  :root.dark body {
+    background: var(--color-background-dark);
+    color: #ffffff;
+  }
+
+  /* Vue app root container */
+  #app {
+    @apply h-full flex flex-col;
+    min-height: 100vh;
+    min-height: 100dvh; /* Dynamic viewport height for mobile browsers */
+  }
+
+  /* Selection styling */
+  ::selection {
+    background-color: var(--color-primary-light);
+    color: var(--color-text-primary);
+  }
+
+  /* Remove default focus outlines, add custom ones where appropriate */
+  *:focus {
+    outline: none;
+  }
+
+  *:focus-visible {
+    box-shadow: var(--shadow-glow);
+    border-radius: var(--radius-sm);
+  }
+
+  /* Headings */
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: var(--font-weight-semibold);
+    line-height: 1.2;
+    color: var(--color-text-primary);
+  }
+
+  /* Links */
+  a {
+    color: var(--color-primary);
+    text-decoration: none;
+    transition: color var(--transition-fast);
+  }
+
+  a:hover {
+    color: var(--color-primary-hover);
+  }
+
+  /* Scrollbar styling (WebKit) */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply rounded-full;
+    background-color: var(--color-text-tertiary);
+    transition: background-color var(--transition-fast);
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: var(--color-text-secondary);
+  }
+
+  /* Firefox scrollbar styling */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-text-tertiary) transparent;
+  }
+}
+
+/**
+ * Component layer utilities
+ *
+ * Reusable component patterns for the emulator interface
+ */
+@layer components {
+  /* iPhone device frame styling */
+  .device-frame {
+    @apply relative rounded-device bg-device-frame-space-grey shadow-device;
+  }
+
+  /* Safari browser toolbar styling */
+  .safari-toolbar {
+    @apply flex items-center px-4 py-2 bg-safari-toolbar;
+  }
+
+  /* URL bar input styling */
+  .url-bar {
+    @apply w-full px-4 py-2 rounded-lg bg-safari-url-bar text-center text-sm;
+  }
+
+  /* Browser viewport container */
+  .browser-viewport {
+    @apply overflow-hidden bg-white;
+  }
+
+  /* Control button styling */
+  .control-button {
+    @apply px-4 py-2 rounded-lg bg-slate-700 hover:bg-slate-600 transition-colors duration-200 ease-ios;
+  }
+}
+
+/**
+ * Utility layer additions
+ *
+ * Custom utilities not covered by Tailwind's defaults
+ */
+@layer utilities {
+  /* Hide scrollbar whilst maintaining scroll functionality */
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* iOS-style bounce scrolling */
+  .scroll-bounce {
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
+  }
+
+  /* Prevent text selection on interactive elements */
+  .no-select {
+    -webkit-user-select: none;
+    user-select: none;
+  }
+
+  /* Hardware-accelerated transforms for smooth animations */
+  .gpu-accelerated {
+    transform: translateZ(0);
+    will-change: transform;
+  }
+
+  /* Touch target minimum (44px for accessibility) */
+  .touch-target {
+    @apply min-w-[44px] min-h-[44px];
+  }
+
+  /* Safe area utilities (for the emulated device) */
+  .safe-area-top {
+    padding-top: var(--safe-area-top);
+  }
+
+  .safe-area-bottom {
+    padding-bottom: var(--safe-area-bottom);
+  }
+
+  /* Absolute centre */
+  .absolute-center {
+    @apply absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2;
+  }
+
+  /* Flex centre shorthand */
+  .flex-center {
+    @apply flex items-center justify-center;
+  }
+
+  /* Glass morphism effect */
+  .glass {
+    @apply rounded-xl;
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+  }
+
+  .dark .glass {
+    background: rgba(30, 30, 30, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+}
+
+/* ==========================================================================
+   SMOOTH DARK MODE TRANSITIONS
+   ========================================================================== */
+
+/**
+ * When transitioning between themes, apply smooth transitions
+ * to all colour-related properties
+ */
+html.transitioning,
+html.transitioning *,
+html.transitioning *::before,
+html.transitioning *::after {
+  transition:
+    background-color var(--transition-slow) !important,
+    border-color var(--transition-slow) !important,
+    color var(--transition-slow) !important,
+    fill var(--transition-slow) !important,
+    stroke var(--transition-slow) !important;
+}
+
+/* ==========================================================================
+   PRINT STYLES
+   ========================================================================== */
+
+@media print {
+  body {
+    background: white !important;
+    color: black !important;
+  }
+
+  .device-frame {
+    box-shadow: none !important;
+    filter: none !important;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+}

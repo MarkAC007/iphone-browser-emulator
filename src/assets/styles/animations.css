@@ -1,0 +1,330 @@
+/**
+ * Animation Keyframes and Utilities
+ *
+ * CSS animations for the iPhone Browser Emulator.
+ * Includes keyframe definitions and animation utility classes.
+ *
+ * Uses British English in all comments.
+ */
+
+/* ==========================================================================
+   KEYFRAME DEFINITIONS
+   ========================================================================== */
+
+/**
+ * Loading spinner rotation
+ */
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/**
+ * Fade in animation
+ */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/**
+ * Fade out animation
+ */
+@keyframes fade-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+/**
+ * Slide up animation (for modals, tooltips)
+ */
+@keyframes slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/**
+ * Slide down animation
+ */
+@keyframes slide-down {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/**
+ * Scale in animation (for buttons, interactive elements)
+ */
+@keyframes scale-in {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/**
+ * Pulse animation (for loading states, attention)
+ */
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+/**
+ * Shake animation (for errors, validation)
+ */
+@keyframes shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  10%,
+  30%,
+  50%,
+  70%,
+  90% {
+    transform: translateX(-4px);
+  }
+  20%,
+  40%,
+  60%,
+  80% {
+    transform: translateX(4px);
+  }
+}
+
+/**
+ * Progress bar animation (determinate - fills left to right)
+ */
+@keyframes progressBar {
+  0% {
+    width: 0%;
+    opacity: 1;
+  }
+  20% {
+    width: 30%;
+  }
+  50% {
+    width: 60%;
+  }
+  80% {
+    width: 85%;
+  }
+  100% {
+    width: 100%;
+    opacity: 1;
+  }
+}
+
+/**
+ * Progress bar animation (indeterminate - sliding effect)
+ */
+@keyframes progress-indeterminate {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(400%);
+  }
+}
+
+/**
+ * Device wake animation (screen turning on)
+ */
+@keyframes device-wake {
+  0% {
+    opacity: 0;
+    filter: brightness(0);
+  }
+  50% {
+    opacity: 1;
+    filter: brightness(1.5);
+  }
+  100% {
+    opacity: 1;
+    filter: brightness(1);
+  }
+}
+
+/**
+ * Dynamic Island subtle pulse
+ */
+@keyframes island-pulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.02);
+  }
+}
+
+/**
+ * Device rotation animation
+ */
+@keyframes device-rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(90deg);
+  }
+}
+
+/**
+ * Bounce animation (for haptic-style feedback)
+ */
+@keyframes bounce {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(0.95);
+  }
+}
+
+/**
+ * Screenshot flash animation
+ */
+@keyframes screenshot-flash {
+  0% {
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+/* ==========================================================================
+   ANIMATION UTILITY CLASSES
+   ========================================================================== */
+
+.animate-spin {
+  animation: spin 1s linear infinite;
+}
+
+.animate-fade-in {
+  animation: fade-in 200ms ease-out forwards;
+}
+
+.animate-fade-out {
+  animation: fade-out 200ms ease-out forwards;
+}
+
+.animate-slide-up {
+  animation: slide-up 300ms ease-out forwards;
+}
+
+.animate-slide-down {
+  animation: slide-down 300ms ease-out forwards;
+}
+
+.animate-scale-in {
+  animation: scale-in 200ms ease-out forwards;
+}
+
+.animate-pulse {
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.animate-shake {
+  animation: shake 500ms ease-in-out;
+}
+
+.animate-progress {
+  animation: progressBar 2s ease-out forwards;
+}
+
+.animate-progress-indeterminate {
+  animation: progress-indeterminate 1.5s ease-in-out infinite;
+}
+
+.animate-device-wake {
+  animation: device-wake 600ms ease-out forwards;
+}
+
+.animate-island-pulse {
+  animation: island-pulse 2s ease-in-out infinite;
+}
+
+.animate-bounce {
+  animation: bounce 150ms ease-out;
+}
+
+.animate-screenshot-flash {
+  animation: screenshot-flash 300ms ease-out forwards;
+}
+
+/* ==========================================================================
+   TRANSITION UTILITIES
+   ========================================================================== */
+
+.transition-fast {
+  transition-duration: 150ms;
+  transition-timing-function: ease;
+}
+
+.transition-normal {
+  transition-duration: 200ms;
+  transition-timing-function: ease;
+}
+
+.transition-slow {
+  transition-duration: 300ms;
+  transition-timing-function: ease;
+}
+
+.transition-ios {
+  transition-duration: 300ms;
+  transition-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+/* ==========================================================================
+   REDUCED MOTION
+   ========================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
